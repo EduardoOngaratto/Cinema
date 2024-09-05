@@ -4,52 +4,52 @@ const app = express();
 
 app.use(express.json());
 
-const animais = ['cachorro', 'gatos', 'ganso'];
+const animais = ['Elefante', 'Girafa', 'Zebra', 'Rinoceronte'];
 
-//criando um animal
+// Criar um animal
 app.post('/animais', (req, res) => {
     const { name } = req.body;
     animais.push(name);
 
-    return res.json(animais)
+    return res.json(animais);
 })
 
-//atualizando um animal
+// Atualizar um animal
 app.put('/animais/:index', (req,res) => {
     const { index } = req.params;
     const { name } = req.body;
 
     animais[index] = name;
 
-    return res.json(animais)
+    return res.json(animais);
 })
 
-//deletando um animal
+// Deletar um animal
 app.delete('/animais/:index', (req,res) => {
     const { index } = req.params;
 
     if(index >= animais.length){
-        return res.json({message: 'index não encontrado'})
+        return res.json({message: 'index não encontrado'});
     }
     
     animais.splice(index, 1);
-    return res.json({message: 'animal deletado com sucesso'})
+    return res.json({message: 'animal deletado com sucesso'});
     
 })
 
-//buscando todos os animais
+// Buscar todos os animais
 app.get('/animais', (req,res) => {
     
-    res.json(animais)
+    res.json(animais);
 })
 
-//buscando animal especifico
+// Buscar um animal específico
 app.get('/animais/:index', (req, res) => {
     const { index } = req.params;
 
-    return res.json(animais[index])
+    return res.json(animais[index]);
 })
 
 app.listen(3000, () => {
-    console.log('rodando na porta 3000')
+    console.log('rodando na porta 3000');
 })
