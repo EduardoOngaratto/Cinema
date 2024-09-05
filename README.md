@@ -50,7 +50,7 @@ Este é um exemplo de uma API simples criada com Express.js para gerenciar uma l
    ```
    O servidor será iniciado na porta 3000.
 
-   ## Uso
+## Uso
 
 Use os seguintes endpoints para interagir com a API:
 
@@ -67,7 +67,7 @@ Use os seguintes endpoints para interagir com a API:
 ````
 **Response:**
 ```json
-["cachorro", "gatos", "ganso", "novo_animal"];
+["cachorro", "gatos", "ganso", "novo_animal"]
 ```
 
 ### Atualizar um animal
@@ -82,7 +82,7 @@ Use os seguintes endpoints para interagir com a API:
 
 **Response:**
 ```json
-["cachorro", "novo_animal", "ganso"];
+["cachorro", "novo_animal", "ganso"]
 ```
 
 ### Deletar um animal
@@ -104,7 +104,7 @@ Se o índice(animal) não for encontrado:
 ### Buscar todos os animais
 **GET** `/animais`
 ```json
-["cachorro", "gatos", "ganso"];
+["cachorro", "gatos", "ganso"]
 ```
 
 ### Buscar um animal específico
