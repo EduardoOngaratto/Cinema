@@ -1,55 +1,51 @@
 const express = require('express');
+const checkfilmes = require('./middlewares/checkfilmes');
+const checkIndexfilmes = require('./middlewares/checkIndexfilmes');
 
 const app = express();
 
 app.use(express.json());
 
-const animais = ['Elefante', 'Girafa', 'Zebra', 'Rinoceronte'];
+const filmes = ['O Show de Truman', 'Um Sonho de Liberdade', 'O Rei Leão', 'Titanic'];
 
-// Criar um animal
-app.post('/animais', (req, res) => {
+// Criar um Filme
+app.post('/filmes', checkfilmes, (req, res) => {
     const { name } = req.body;
-    animais.push(name);
+    filmes.push(name);
 
-    return res.json(animais);
-})
+    return res.json(filmes);
+});
 
-// Atualizar um animal
-app.put('/animais/:index', (req,res) => {
+// Atualizar um Filme
+app.put('/filmes/:index', checkfilmes, checkIndexfilmes, (req, res) => {
     const { index } = req.params;
     const { name } = req.body;
 
-    animais[index] = name;
+    filmes[index] = name;
 
-    return res.json(animais);
-})
+    return res.json(filmes);
+});
 
-// Deletar um animal
-app.delete('/animais/:index', (req,res) => {
+// Deletar um Filme
+app.delete('/filmes/:index', checkIndexfilmes, (req, res) => {
     const { index } = req.params;
 
-    if(index >= animais.length){
-        return res.json({message: 'index não encontrado'});
-    }
-    
-    animais.splice(index, 1);
-    return res.json({message: 'animal deletado com sucesso'});
-    
-})
+    filmes.splice(index, 1);
+    return res.json({ message: 'Filme deletado com sucesso' });
+});
 
-// Buscar todos os animais
-app.get('/animais', (req,res) => {
-    
-    res.json(animais);
-})
+// Buscar todos os filmes
+app.get('/filmes', (req, res) => {
+    res.json(filmes);
+});
 
-// Buscar um animal específico
-app.get('/animais/:index', (req, res) => {
+// Buscar um Filme específico
+app.get('/filmes/:index', checkIndexfilmes, (req, res) => {
     const { index } = req.params;
 
-    return res.json(animais[index]);
-})
+    return res.json(filmes[index]);
+});
 
 app.listen(3000, () => {
     console.log('rodando na porta 3000');
-})
+});
