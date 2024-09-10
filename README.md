@@ -1,6 +1,6 @@
-# Animal API
+# Cinema API
 
-Este é um exemplo de uma API simples criada com Express.js para gerenciar uma lista de animais. A API oferece endpoints para criar, atualizar, deletar e buscar animais.
+Este é um exemplo de uma API simples criada com Express.js para gerenciar uma lista de filmes. A API oferece endpoints para criar, atualizar, deletar e buscar filmes.
 
 ## Requisitos
 
@@ -12,13 +12,13 @@ Este é um exemplo de uma API simples criada com Express.js para gerenciar uma l
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/EduardoOngaratto/Zoologico.git
+   git clone https://github.com/EduardoOngaratto/Cinema.git
     ```
 
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd Zoologico
+   cd Cinema
    ```
 
 ## Uso
@@ -54,63 +54,63 @@ Este é um exemplo de uma API simples criada com Express.js para gerenciar uma l
 
 Use os seguintes endpoints para interagir com a API:
 
-### Criar um animal
+### Criar um Filme
 
-**POST** `/animais`
+**POST** `/filmes`
 
 **Request Body:**
 
 ```json
 {
-  "name": "novo_animal"
+  "name": "novo_filme"
 }
 ````
 **Response:**
 ```json
-["cachorro", "gatos", "ganso", "novo_animal"]
+["O Show de Truman", "Titanic", "Rei Leão", "novo_filme"]
 ```
 
 ### Atualizar um animal
 
-**PUT** `/animais/index`
+**PUT** `/filmes/:index`
 
 ```json
 {
-  "name": "animal_atualizado"
+  "name": "filme_atualizado"
 }
 ```
 
 **Response:**
 ```json
-["cachorro", "novo_animal", "ganso"]
+["cachorro", "novo_filme", "ganso"]
 ```
 
 ### Deletar um animal
-**DELETE** `/animais/:index`
+**DELETE** `/filmes/:index`
 
 ```json
 {
-  "message": "animal deletado com sucesso"
+  "message": "filme deletado com sucesso"
 }
 ```
 
-Se o índice(animal) não for encontrado:
+Se o índice(filme) não for encontrado:
 ```json
 {
-    "message": "index não encontrado"
+    "message": "Filme não encontrado"
 }
 ```
 
 ### Buscar todos os animais
-**GET** `/animais`
+**GET** `/filmes`
 ```json
-["cachorro", "gatos", "ganso"]
+["O Show de Truman", "Um Sonho de Liberdade", "O Rei Leão"]
 ```
 
 ### Buscar um animal específico
-**GET** `/animais/:index`
+**GET** `/filmes/:index`
 ```json
-"cachorro";
+"O Show de Truman"
 ```
 
 ## Tecnologias
