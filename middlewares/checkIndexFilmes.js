@@ -1,9 +1,8 @@
-// middlewares/checkIndexAnimais.js
+// middlewares/checkIndexFilmes.js
 
-const filmes = ['O Show de Truman', 'Um Sonho de Liberdade', 'O Rei Leão', 'Titanic'];
-
-function checkIndexAnimais(req, res, next) {
-    const filme = filmes[req.params.index];
+function checkIndexFilmes(req, res, next) {
+    const { index } = req.params;  
+    const filme = req.app.locals.filmes[index]; 
 
     if (!filme) {
         return res.status(404).json({ error: "O Filme não existe" });
@@ -12,4 +11,4 @@ function checkIndexAnimais(req, res, next) {
     return next();
 }
 
-module.exports = checkIndexAnimais;
+module.exports = checkIndexFilmes;
